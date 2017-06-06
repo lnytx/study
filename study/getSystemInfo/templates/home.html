@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<div id='dict'>加载字典</div>
+<p id='dict_result'</p>
+<script type='text/javascript'>
+	function DoAjax(){
+			var temp=$('#na').val()
+			$.ajax({
+				url:'/home/',           //url相当于 form 中的 action
+				type:'GET',            //type相当于form 中的 method
+				data:{dat:temp},       // data：传人的数据 dat为任意设置的内容，相当于模版中的{author:lee}
+				success:function(arg){     //成功执行  console.log() 函数 arg 为HttpResponse 返回的值
+					//var obj=jQuery.parseJSON(arg)
+					//console.log(arg)              //json.dumps(data) 序列化后的数据    
+					console.log(arg.msg)
+					/*
+					console.log(obj)
+					console.log(obj.status)       //取json.dumps(data)字典的值status
+					console.log(obj.msg)
+					console.log(obj.data)*/
+					console.log('request.POST 提交成功')
+				},
+				error:function(){            //失败 
+					console.log('失败')
+				}
+			});	
+		}
+</script>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<div id='dict'>加载字典</div>
+<p id='dict_result'</p>
+<script type='text/javascript'>
+$('#dict').click(function(){
+          $.getJSON('/home/',function(ret){
+              //返回值 ret 在这里是一个字典
+              $('#dict_result').append(ret.name + '<br>'+ret.分数);
+          })
+      })
+</script>
+</html>
